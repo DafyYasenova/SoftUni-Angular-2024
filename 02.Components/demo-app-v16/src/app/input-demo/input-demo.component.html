@@ -1,2 +1,5 @@
 <input type="text" aria-placeholder="username" #username>
     <button (click)="handleInput(username.value)">Add username</button>
+
+<div [attr.data-test]="'Data Test'">Testing of custom data attribute
+</div>
