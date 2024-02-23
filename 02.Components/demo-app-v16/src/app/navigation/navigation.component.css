@@ -1,0 +1,18 @@
+#wrapper {
+    background-color: rgb(20, 158, 112);
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    border: 1px solid #eee;
+    margin: 0 10px;
+    cursor: pointer;
+    padding: 7px 10px;
+    border-radius: 10px;
+    color: #eee;
+    font-weight: bold;
+}
