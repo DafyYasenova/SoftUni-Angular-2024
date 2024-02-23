@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 type User = {
   name: string;
   age: number;
+  status: string;
 }
 
 @Component({
@@ -13,10 +14,10 @@ type User = {
 export class UserListComponent {
   
   users = [
-    { name: 'Ivo', age: 18 },
-    { name: 'Ani', age: 28 },
-    { name: 'Toni', age: 38 },
-    { name: 'Moni', age: 48 },
+    { name: 'Ivo', age: 18, status: 'red'},
+    { name: 'Ani', age: 28, status: 'blue'},
+    { name: 'Toni', age: 38, status: 'pink'},
+    { name: 'Moni', age: 48, status: 'green'},
   ] as User[];
   
  
