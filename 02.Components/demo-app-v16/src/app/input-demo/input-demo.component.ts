@@ -6,7 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./input-demo.component.css']
 })
 export class InputDemoComponent {
-handleInput(usernameValue: string){
-console.log('username:', usernameValue)
-}
+  title: string = 'Title';
+
+  handleInput(usernameValue: string) {
+    console.log('username:', usernameValue)
+  }
+
+  changeTitleHandler(newTitle: string) {
+    this.title = newTitle;
+  }
 }
