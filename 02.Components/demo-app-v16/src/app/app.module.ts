@@ -6,10 +6,11 @@ import { NavComponent } from './nav/nav.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { PlaygroundComponent } from './playground/playground.component';
+import { InputDemoComponent } from './input-demo/input-demo.component';
 
 @NgModule({
   declarations: [
-    AppComponent, NavComponent, NavigationComponent, UserListComponent, PlaygroundComponent
+    AppComponent, NavComponent, NavigationComponent, UserListComponent, PlaygroundComponent, InputDemoComponent
   ],
   imports: [
     BrowserModule
