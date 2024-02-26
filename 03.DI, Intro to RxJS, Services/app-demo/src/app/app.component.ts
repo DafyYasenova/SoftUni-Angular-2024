@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { User } from './type/User';
 
 @Component({
@@ -9,6 +9,16 @@ import { User } from './type/User';
 export class AppComponent {
   title = 'app-demo';
 
+
+  // stop change detection
+  constructor(private cd: ChangeDetectorRef){
+    setTimeout(() => {
+      this.title = 'Changer from Detector!';
+      this.cd.detectChanges();
+    }, 3000);
+  }
+
+
   users: User[] = [
     { name: "Ani", age: 12 },
     { name: "Mimi", age: 23 },
@@ -17,6 +27,7 @@ export class AppComponent {
     { name: "Bibi", age: 18 },
 
   ];
+
 
 
 }
