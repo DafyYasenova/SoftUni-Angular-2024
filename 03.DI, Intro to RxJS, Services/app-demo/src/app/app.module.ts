@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersItemComponent } from './users-item/users-item.component';
-import { waitForAsync } from '@angular/core/testing';
+import { Observable, interval, map } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -108,10 +108,55 @@ promise.then((data) => {
 
 
 Promise.resolve(100)
-.then((data) => data * 10)
-.then(( data) => console.log('From promise 2', data));
+  .then((data) => data * 10)
+  .then((data) => console.log('From promise 2', data));
 
 
 
+// observables:
+
+const obs = new Observable((observer) => {
+  observer.next(1);
+  observer.next(2);
+  observer.next(3);
+  observer.next(4);
+
+});
+
+obs.subscribe((data) => {
+  console.log('observable:', data)
+});
 
 
+// ** implement interval like interval from RxJS
+
+// const interval = (intervalValue: number) => {
+//   const observ = new Observable<number>((observer) => {
+//     let counter = 0;
+
+//     const timer = setInterval(() => {
+//       observer.next(counter++)
+//     }, intervalValue);
+
+
+//     // clear onDestroy
+//     return () => {
+//       clearInterval(timer)
+//     }
+//   });
+
+//   return observ;
+// }
+// interval(2000).subscribe((data) => {
+//   console.log('Interval data:', data)
+
+
+const stream$ = interval(2000).pipe(map((x) => x * 2));
+
+// stream$.subscribe((data) => console.log('stream:', data))
+stream$.subscribe({
+  next: (data) => console.log('stream:', data),
+  error: (error) => console.error('error:', error),
+  complete: () => console.log('Stream has completed!'),
+
+})
