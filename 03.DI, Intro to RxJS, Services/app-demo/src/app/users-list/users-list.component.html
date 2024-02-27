@@ -1,1 +1,5 @@
-<p>users-list works!</p>
+<ul>
+    <li *ngFor="let user of usersListData">
+        <app-users-item [user]="user"></app-users-item>
+    </li>
+</ul>

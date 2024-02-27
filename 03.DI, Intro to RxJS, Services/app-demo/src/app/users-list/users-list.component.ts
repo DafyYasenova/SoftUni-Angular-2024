@@ -7,5 +7,5 @@ import { User } from '../type/User';
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent {
-@Input() users: User[] = [];
+@Input('users') usersListData: User[] = [];
 }
