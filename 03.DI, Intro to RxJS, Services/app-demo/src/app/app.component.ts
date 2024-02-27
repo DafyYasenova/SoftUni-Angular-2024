@@ -18,16 +18,16 @@ export class AppComponent {
   //   }, 3000);
   // }
 
-constructor(private cd: ChangeDetectorRef) {
-  // setTimeout(() =>{
-  //   this.title = 'Change from Angular!';
-  // }, 2000)
+// constructor(private cd: ChangeDetectorRef) {
+//   // setTimeout(() =>{
+//   //   this.title = 'Change from Angular!';
+//   // }, 2000)
 
-  setInterval(() => {
-    this.cd.detectChanges();
-    console.log('Changes Detected');
-  },3000);
-}
+//   setInterval(() => {
+//     this.cd.detectChanges();
+//     console.log('Changes Detected');
+//   },3000);
+// }
   users: User[] = [
     { name: "Ani", age: 12 },
     { name: "Mimi", age: 23 },

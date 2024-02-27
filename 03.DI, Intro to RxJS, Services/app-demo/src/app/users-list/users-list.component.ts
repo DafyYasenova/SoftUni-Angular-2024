@@ -6,20 +6,22 @@ import { User } from '../type/User';
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-
-
-
 })
 export class UsersListComponent {
 @Input('users') usersListData: User[] = [];
 
 
+constructor(private cd: ChangeDetectorRef) {}
 
-constructor(private cd: ChangeDetectorRef) {
-
-  setInterval(() => {
-    this.cd.detectChanges();
-    console.log('Changes Detected');
-  },3000);
+refresh(){
+  this.cd.detectChanges()
 }
+
+// constructor(private cd: ChangeDetectorRef) {
+
+//   setInterval(() => {
+//     this.cd.detectChanges();
+//     console.log('Changes Detected');
+//   },3000);
+// }
 }
