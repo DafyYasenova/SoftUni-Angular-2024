@@ -18,3 +18,19 @@ import { UsersItemComponent } from './users-item/users-item.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+class Person {
+
+  public balance = 0;
+  public name = 'Pesho';
+
+  public color = '';
+  private getName() { }
+}
+
+class BetterPerson extends Person{ }
+const p = new Person();
+
+
+
+
