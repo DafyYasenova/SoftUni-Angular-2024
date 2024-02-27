@@ -85,6 +85,33 @@ class PersonOptimized {
 
 
 const person1Wallet = new Wallet(3333);
-const person1Car = new Car ('Audi', 'blue');
+const person1Car = new Car('Audi', 'blue');
 const person1Person = new PersonOptimized(person1Wallet, person1Car);
 console.log(person1Person);
+
+
+
+// promise:
+
+const promise = new Promise((resolve, reject) => {
+  console.log('promise invoked!')
+
+  setTimeout(() => {
+    resolve(111);
+    // reject('Why');
+  }, 3000);
+});
+
+promise.then((data) => {
+  console.log('From promise', data);
+}).then().then().catch((err) => console.error(err));
+
+
+Promise.resolve(100)
+.then((data) => data * 10)
+.then(( data) => console.log('From promise 2', data));
+
+
+
+
+
