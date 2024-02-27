@@ -50,6 +50,8 @@ class Car {
   }
 }
 
+// Dependency injection
+
 // Bad way:
 class Person {
   wallet: Wallet;
@@ -85,4 +87,4 @@ class PersonOptimized {
 const person1Wallet = new Wallet(3333);
 const person1Car = new Car ('Audi', 'blue');
 const person1Person = new PersonOptimized(person1Wallet, person1Car);
-console.log(person1Person)
+console.log(person1Person);
