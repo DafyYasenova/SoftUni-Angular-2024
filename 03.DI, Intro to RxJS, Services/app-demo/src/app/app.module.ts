@@ -4,8 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersItemComponent } from './users-item/users-item.component';
-import { Observable, interval, map } from 'rxjs';
+import { Observable, interval, map, tap } from 'rxjs';
 
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,7 +14,7 @@ import { Observable, interval, map } from 'rxjs';
     UsersItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -151,7 +152,9 @@ obs.subscribe((data) => {
 //   console.log('Interval data:', data)
 
 
-const stream$ = interval(2000).pipe(map((x) => x * 2));
+const stream$ = interval(2000)
+.pipe(map((x) => x * 2))
+.pipe(tap((x) => console.log(x + ': tap')));
 
 // stream$.subscribe((data) => console.log('stream:', data))
 stream$.subscribe({

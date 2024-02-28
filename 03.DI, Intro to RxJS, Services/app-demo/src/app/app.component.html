@@ -1,11 +1,12 @@
 <h3>{{ title }}</h3>
 
-<app-users-list [users]="userService.users"></app-users-list>
+
+<app-users-list [users]="appUsers"></app-users-list>
 
 
 <div>
     <input type="text" placeholder="name" #inputName/>
-    <input type="text" placeholder="age" #inputAge/>
+    <input type="text" placeholder="email" #inputEmail/>
     <!-- <button (click)="userService.addUser(inputName, inputAge)">Add user</button> -->
-    <button (click)="setUsers(inputName, inputAge)">Add user</button>
+    <button (click)="setUsers(inputName, inputEmail)">Add user</button>
 </div>

@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
-import { User } from '../type/User';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, SimpleChanges } from '@angular/core';
+import { JsonPlaceHolderUser, User } from '../type/User';
 
 @Component({
   selector: 'app-users-list',
@@ -8,11 +8,14 @@ import { User } from '../type/User';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersListComponent {
-@Input('users') usersListData: User[] = [];
+@Input('users') usersListData: JsonPlaceHolderUser[] = [];
 
 
 constructor(private cd: ChangeDetectorRef) {}
 
+// ngOnChanges(changes: SimpleChanges): void {
+//   // console.log('on changes');
+// }
 refresh(){
   this.cd.detectChanges()
 }

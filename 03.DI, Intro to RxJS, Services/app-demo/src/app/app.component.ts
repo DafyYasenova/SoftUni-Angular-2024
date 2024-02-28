@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { User } from './type/User';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { JsonPlaceHolderUser, User } from './type/User';
 import { UserService } from './user.service';
 
 @Component({
@@ -7,13 +7,23 @@ import { UserService } from './user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'app-demo';
-
+appUsers: JsonPlaceHolderUser[]=[];
   constructor(public userService: UserService) { }
+  
+ngOnInit(): void {
+  
+  this.userService.getUsers().then(users => {
+    console.log('users data', users);
+   
+    this.appUsers = users;
 
-  setUsers(inputName: HTMLInputElement, inputAge: HTMLInputElement) {
-    this.userService.addUser(inputName, inputAge);
+    })
+  
+}
+  setUsers(inputName: HTMLInputElement, inputEmail: HTMLInputElement) {
+    this.userService.addUser(inputName, inputEmail);
     // additional functionality
   }
 
