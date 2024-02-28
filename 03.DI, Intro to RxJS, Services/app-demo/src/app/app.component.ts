@@ -7,21 +7,27 @@ import { UserService } from './user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'app-demo';
-appUsers: JsonPlaceHolderUser[]=[];
+  appUsers: JsonPlaceHolderUser[] = [];
+
+  isLoading = true;
   constructor(public userService: UserService) { }
-  
-ngOnInit(): void {
-  
-  this.userService.getUsers().then(users => {
-    console.log('users data', users);
-   
-    this.appUsers = users;
+
+  ngOnInit(): void {
+
+    this.userService.getUsers().then(users => {
+      console.log('users data', users);
+
+      this.appUsers = users;
+
+      setTimeout(() => {
+        this.isLoading= false;
+      }, 3000);
 
     })
-  
-}
+
+  }
   setUsers(inputName: HTMLInputElement, inputEmail: HTMLInputElement) {
     this.userService.addUser(inputName, inputEmail);
     // additional functionality
