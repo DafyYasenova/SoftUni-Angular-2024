@@ -1,0 +1,15 @@
+in CMD terminal:
+C:\Users\35989\Documents\GitHub\SoftUni-Angular-2024\04.Workshop - Components>cd C:\Program Files\MongoDB\Server\7.0\bin
+
+Commant propmt:
+C:\Program Files\MongoDB\Tools\100\bin>
+.\mongorestore --uri "mongodb://localhost:27017/forum" -d forum "C:\Users\35989\Documents\GitHub\SoftUni-Angular-2024\04.Workshop - Components\resources\forum"
+
+
+in powershell :
+PS C:\Users\35989\Documents\GitHub\SoftUni-Angular-2024\04.Workshop - Components\rest-api> npm start
+
+
+ npx @angular/cli@16 new workshop-components
+ cd workshop-components 
+ ng serve
