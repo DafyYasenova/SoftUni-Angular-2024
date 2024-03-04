@@ -3,16 +3,32 @@
 <ul>
 
   @for (task of tasks; track task.id){
-    @if (task.status === 'inProgress'){
-      <li style="color: orange"> {{ task.name }} - {{ task.status }}</li>
-    }
-    @else if(task.status === 'todo'){
-      <li style="color: green"> {{ task.name }} - {{ task.status }}</li>
-    }
-    @else {
-      <li style="color: red"> {{ task.name }} - {{ task.status }}</li>
-    }
-    <!-- <li> {{ task.name }} - {{ task.status }}</li> -->
+  @if (task.status === 'inProgress'){
+  <li style="color: orange"> {{ task.name }} - {{ task.status }}</li>
   }
+  @else if(task.status === 'todo'){
+  <li style="color: green"> {{ task.name }} - {{ task.status }}</li>
+  }
+  @else {
+  <li style="color: red"> {{ task.name }} - {{ task.status }}</li>
+  }
+  <!-- <li> {{ task.name }} - {{ task.status }}</li> -->
+  }
+
+  <div>
+    @for (task of tasks; track task.id){
+    <div>{{task.name }} - {{task.status }}</div>
+    }@empty {
+    <div>Sorry, task not found!</div>
+    }
+  </div>
+
 </ul>
+
+<hr />
+<app-home />
+
+<div>
+  @defer { Defer on view port}@loading () {Loading...} @placeholder {}@error {Error happend!}
+</div>
 <router-outlet />
