@@ -32,7 +32,12 @@ import { ErrorComponent } from './error/error.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, CoreModule, SharedModule, HttpClientModule, UserModule, ThemeModule,
+    CoreModule,
+    SharedModule,
+    HttpClientModule,
+    UserModule,
+    ThemeModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
