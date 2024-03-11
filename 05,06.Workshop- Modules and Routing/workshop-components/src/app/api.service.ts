@@ -11,9 +11,10 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  // getTheme(){
-  //   const { apiURL } = environment;
-  // }
+  getTheme(id:string){
+    const { apiURL } = environment;
+    return this.http.get<Theme>(`${apiURL}/themes/${id}`);
+  }
 
   createTheme(themeName: string, postText: string) {
     const { apiURL } = environment;

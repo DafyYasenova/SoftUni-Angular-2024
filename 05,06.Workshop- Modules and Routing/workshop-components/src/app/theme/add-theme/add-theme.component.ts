@@ -10,11 +10,12 @@ export class AddThemeComponent {
 
   constructor(private apiService: ApiService) { }
 
+
   addTheme(event: Event, themeName: string, postText: string) {
     event.preventDefault();
-    console.log({themeName, postText})
+    console.log({ themeName, postText })
     this.apiService.createTheme(themeName, postText).subscribe(data => {
-      console.log({data})
+      console.log({ data })
     });
   }
 }
