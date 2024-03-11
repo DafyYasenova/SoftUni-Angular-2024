@@ -1,10 +1,10 @@
 <main>
-    <app-welcome *ngIf="!isLoggedIn" [isLoggedIn]="isLoggedIn"/>
+    <app-welcome *ngIf="!isLoggedIn" [isLoggedIn]="isLoggedIn" />
     <div *ngIf="isLoading">
         <app-loader />
     </div>
-    <div *ngIf="!isLoading"class="theme-title">
-        
+    <div *ngIf="!isLoading" class="theme-title">
+
         <!-- theme component  -->
         <div *ngFor="let theme of themes" class="theme-container">
             <div class="theme-name-wrapper">
@@ -28,6 +28,6 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </main>
