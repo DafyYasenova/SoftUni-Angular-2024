@@ -11,19 +11,28 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
+  // getTheme(){
+  //   const { apiURL } = environment;
+  // }
+
+  createTheme(themeName: string, postText: string) {
+    const { apiURL } = environment;
+    const payload = { themeName, postText };
+    return this.http.post<Theme>(`${apiURL}/themes`, payload);
+  }
   getThemes() {
     const { apiURL } = environment;
     return this.http.get<Theme[]>(`${apiURL}/themes`);
   }
 
   getPosts(limit?: number) {
-const { apiURL} = environment;
+    const { apiURL } = environment;
 
-let url = `${apiURL}/posts`;
+    let url = `${apiURL}/posts`;
 
-if(limit){
-url += `?limit=${limit}`
-}
-return this.http.get<Post[]>(url);
+    if (limit) {
+      url += `?limit=${limit}`
+    }
+    return this.http.get<Post[]>(url);
   }
 }
