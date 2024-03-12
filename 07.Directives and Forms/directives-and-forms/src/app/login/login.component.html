@@ -13,7 +13,7 @@
 
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" ngModel required [appMaxCount]="4">
+        <input type="password" id="password" name="password" ngModel required [appMaxCount]="4" #passwordInput="ngModel">
     </div>
 
 
@@ -21,7 +21,12 @@
         <div *ngIf="emailInput.errors?.['required']" style="color: red">Email is required!</div>
     </div>
 
+
     <div *ngIf="emailInput.errors?.['email']" style="color: red">Email is not valid!</div>
+    
+    
+    <div *ngIf="passwordInput.errors?.['appMaxCount']" style="color: orangered">Password is longer than {{passwordInput.errors?.["appMaxCoint"]}}</div>
+
     <button>Login</button>
 </form>
 

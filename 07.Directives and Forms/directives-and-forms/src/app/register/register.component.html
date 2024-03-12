@@ -2,3 +2,32 @@
 
 <p routerLink="/home"> Back to home</p>
 <!-- <p appMyRouterlink="/home"> Back to home</p> -->
+
+
+<form [formGroup]="registerForm" (ngSubmit)="handleSubmit()">
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" formControlName="email">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" formControlName="password">
+    </div>
+
+    <div *ngIf="registerForm.get('email')?.touched">
+        <div *ngIf="registerForm.get('email')?.errors?.['required']" style="color: red">Email is required!</div>
+    </div>
+
+    <div *ngIf="registerForm.get('password')?.errors?.['maxlength']" style="color: orangered">
+        Password is longer than
+        {{registerForm.get('password')?.errors?.['maxlenght']}}
+    </div>
+
+
+
+    <!-- <div *ngIf="emailInput.errors?.['email']" style="color: red">Email is not valid!</div> -->
+
+    <button>Register</button>
+</form>
