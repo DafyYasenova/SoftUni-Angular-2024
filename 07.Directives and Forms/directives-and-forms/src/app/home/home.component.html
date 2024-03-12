@@ -6,5 +6,29 @@
 
 <!-- <div routerLink="/login"> > Go to Login page</div>
 <div routerLink="/register"> > Go to Register page</div> -->
+
 <div appMyRouterlink="/login"> > Go to Login page</div>
 <div appMyRouterlink="/register"> > Go to Register page</div>
+
+<hr />
+
+<!-- Structutal directive: -->
+
+<div *ngIf="true">
+    <div>Simple div 1</div>
+    <div>Simple div 1</div>
+    <div>Simple div 1</div>
+</div>
+
+<ng-template [ngIf]='true'>
+    <div>
+        <div>Simple div 2</div>
+        <div>Simple div 2</div>
+        <div>Simple div 2</div>
+    </div>
+</ng-template>
+
+<!-- Custom directive: -->
+<button (click)="toggle()">Toggle</button>
+
+<div *appMyStructuralDir="isShow">Structural directive 1</div>
