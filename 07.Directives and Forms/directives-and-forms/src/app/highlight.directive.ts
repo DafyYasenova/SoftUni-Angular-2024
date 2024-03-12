@@ -1,15 +1,25 @@
-import { Directive, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 
+
+type MyVoid = () =>void;
 @Directive({
   selector: '[appHighlight]'
 })
-export class HighlightDirective implements OnInit {
+export class HighlightDirective implements OnInit, OnDestroy{
 
-  @HostListener('mouseover', ['$event']) mouseOverHandler(e: MouseEvent) {
-    console.log('mouse over', e);
-  }
+
+  // hostListener demo:
+
+  // @HostListener('mouseover', ['$event']) mouseOverHandler(e: MouseEvent) {
+  //   console.log('mouse over', e);
+  // }
+
+
+unSubFromEventsArray :MyVoid[] = [];
+
   constructor(private elRef: ElementRef, private renderer: Renderer2) { }
-
+  
+  
   ngOnInit(): void {
     // console.log(this.elRef.nativeElement);
 
@@ -20,18 +30,21 @@ export class HighlightDirective implements OnInit {
     // this.renderer.setStyle(this.elRef.nativeElement, 'background', 'aquamarine');
 
 
-    this.renderer.listen(
+    const mouseEnterEvent = this.renderer.listen(
       this.elRef.nativeElement,
       'mouseenter',
       this.mouseEnterHandler.bind(this),
     );
 
-    this.renderer.listen(
+    const mouseLeaveEvent = this.renderer.listen(
       this.elRef.nativeElement,
       'mouseleave',
-      this.mouseLeaveHandler.bind(this))
-  }
+      this.mouseLeaveHandler.bind(this));
 
+
+      this.unSubFromEventsArray.push(mouseEnterEvent);
+      this.unSubFromEventsArray.push(mouseLeaveEvent);
+  }
 
   mouseEnterHandler(e: MouseEvent): void {
     // console.log(e);
@@ -48,6 +61,7 @@ export class HighlightDirective implements OnInit {
     this.renderer.addClass(this.elRef.nativeElement, 'highlight')
 
   }
+
   mouseLeaveHandler(e: MouseEvent): void {
     // console.log('mouse leave');
 
@@ -63,4 +77,11 @@ export class HighlightDirective implements OnInit {
     this.renderer.removeClass(this.elRef.nativeElement, 'highlight')
 
   };
+
+  ngOnDestroy(): void {
+    console.log('On destroy');
+
+    console.log(this.unSubFromEventsArray);
+   }
+ 
 }
