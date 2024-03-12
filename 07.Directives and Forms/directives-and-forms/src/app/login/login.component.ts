@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,9 +8,15 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
 
-  formSubmitHandler(form: NgForm){
-    console.log(form.value);
+  @ViewChild('loginForm') loginForm: NgForm | undefined;
 
+  formSubmitHandler(){
+    
+    if(!this.loginForm){
+      return;
+    }
+    const form = this.loginForm;
+    console.log(form.value);
 
     //form.value ==> ngModel on input
     const { email, password} = form?.value;
