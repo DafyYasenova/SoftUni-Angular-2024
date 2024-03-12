@@ -82,6 +82,7 @@ unSubFromEventsArray :MyVoid[] = [];
     console.log('On destroy');
 
     console.log(this.unSubFromEventsArray);
+    this.unSubFromEventsArray.forEach((eventFn) => (eventFn()));
    }
  
 }
