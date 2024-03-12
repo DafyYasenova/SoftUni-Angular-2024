@@ -31,4 +31,28 @@
 <!-- Custom directive: -->
 <button (click)="toggle()">Toggle</button>
 
+<!-- Usage 1 -->
 <div *appMyStructuralDir="isShow">Structural directive 1</div>
+
+<!-- Usage 2 -->
+<ng-template [appMyStructuralDir]="isShow" 
+let-testMe="myCustomValue"
+let-myNumb="myNum"
+#directiveRef="appMyStructuralDir"
+>
+<!-- let-myNumb="" : show Defaut value -->
+
+<div>Structural directive 2</div>
+<div>myCustomValue: {{ testMe}}</div>
+<div>myNumber: {{ myNumb}}</div>
+
+</ng-template>
+
+<button (click)="simpleClick(directiveRef)">Simple Click</button>
+
+<!-- Usage 3 -->
+<ng-template #temp>
+    <div>Structural directive 3</div>
+</ng-template>
+
+<ng-container [appMyStructuralDir]="isShow" [myTempRef]="temp"/>
