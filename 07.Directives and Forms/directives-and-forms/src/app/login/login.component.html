@@ -1,4 +1,3 @@
-
 <!-- <p routerLink="/home"> Back to home</p> -->
 <p appMyRouterlink="/home"> Back to home</p>
 
@@ -9,14 +8,24 @@
 
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" id="email" name="email" ngModel>
+        <input type="email" id="email" name="email" email ngModel required #emailInput="ngModel">
     </div>
 
     <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" ngModel>
+        <input type="password" id="password" name="password" ngModel required>
     </div>
 
-   
+
+    <div *ngIf="emailInput.touched">
+        <div *ngIf="emailInput.errors?.['required']" style="color: red">Email is required!</div>
+    </div>
+
+    <div *ngIf="emailInput.errors?.['email']" style="color: red">Email is not valid!</div>
     <button>Login</button>
 </form>
+
+<br />
+<hr />
+
+{{ loginForm.value | json }}

@@ -8,22 +8,27 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent {
 
-  @ViewChild('loginForm') loginForm: NgForm | undefined;
+  @ViewChild('loginForm') form: NgForm | undefined;
 
-  formSubmitHandler(){
-    
-    if(!this.loginForm){
+  formSubmitHandler() {
+
+    if (!this.form) {
       return;
     }
-    const form = this.loginForm;
+    const form = this.form;
+
+    if (form.invalid) {
+      console.log('Form is Invalid!');
+      return;
+    }
     console.log(form.value);
 
     //form.value ==> ngModel on input
-    const { email, password} = form?.value;
+    const { email, password } = form.value;
 
     //2 ways: reseting data:
     // form.reset();
-    form.setValue( {email: '', password: ''})
+    form.setValue({ email: '', password: '' })
 
   }
 }
