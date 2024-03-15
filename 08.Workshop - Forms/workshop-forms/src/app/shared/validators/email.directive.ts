@@ -20,12 +20,14 @@ export class EmailDirective implements Validator, OnChanges {
 
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
     console.log('control', control);
-    return null;
+    return this.validator(control);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
 
     const { currentValue } = changes['appEmail'];
+    console.log({ currentValue });
+
     if (currentValue?.length) {
       this.validator = emailValidator(currentValue);
     }
