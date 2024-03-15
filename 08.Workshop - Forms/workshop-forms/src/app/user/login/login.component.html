@@ -6,36 +6,28 @@
 
             <p class="field field-icon">
                 <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-                <input 
-                class="input-error" 
-                type="email"
-                 name="email" 
-                 id="email" 
-                 placeholder="john.doe@gmail.com" 
-                 ngModel
-                 #inputEmail="ngModel"
-                 required
-
-                 >
+                <input class="input-error" type="email" name="email" id="email" placeholder="john.doe@gmail.com" ngModel
+                    #inputEmail="ngModel" required [appEmail]="['hello']" >
             </p>
-            <p class="error">
-                Email is required!
-            </p>
-            <!-- <p class="error">
+            <ng-container *ngIf="inputEmail.touched">
+                <p class="error" *ngIf="inputEmail.errors?.['required']">
+                    Email is required!
+                </p>
+                <!-- <p class="error">
                 Email is not valid!
             </p> -->
+            </ng-container>
+
 
             <p class="field field-icon">
                 <label for="password"><span><i class="fas fa-lock"></i></span></label>
-                <input
-                 type="password" 
-                 name="password" 
-                 id="password" 
-                 placeholder="******"
-                 ngModel
-                  #inputPassword="ngModel"
-                  >
+                <input type="password" name="password" id="password" placeholder="******" ngModel
+                    #inputPassword="ngModel" required>
             </p>
+
+            <ng-container>
+
+            </ng-container>
             <!-- <p class="error">
                 Password is required!
             </p>
@@ -43,7 +35,7 @@
                 Password must be at least 4 characters!
             </p> -->
 
-            <button >Login</button>
+            <button>Login</button>
 
             <p class="text-center">
                 Have an account?

@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
 constructor (private userService: UserService, private router: Router){}
 
 // login(event: Event, email: string, password:string){
@@ -16,6 +17,7 @@ constructor (private userService: UserService, private router: Router){}
   
   // event.preventDefault();
 
+  
   if(form.invalid){
     return;
   }
