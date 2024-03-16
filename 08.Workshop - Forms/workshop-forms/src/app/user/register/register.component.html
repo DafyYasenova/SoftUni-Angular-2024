@@ -67,7 +67,7 @@
                 <p class="error" *ngIf="form.get('passGroup')?.errors?.['matchPasswordsValidator'] || 
                 form.get('passGroup')?.get('rePassword')?.errors?.['required']">Repeat Password does not match password!</p>
             </ng-container>
-                <button [disabled]="form.invalid">Create Account</button>
+                <button [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : '#007bff'}">Create Account</button>
             </ng-container>
 
                 <p class="text-center"> 
