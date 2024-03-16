@@ -43,7 +43,7 @@
                 <input type="text" name="tel" id="tel" placeholder="885 888 888" formControlName="tel">
             </p>
 
-            <ng-container formControlName="passGroup">
+            <ng-container formGroupName="passGroup">
                 <!-- password -->
                 <p class="field field-icon">
                     <label for="password"><span><i class="fas fa-lock"></i></span></label>
@@ -63,15 +63,17 @@
                     <input type="password" name="rePassword" id="rePassword" placeholder="******"
                         formControlName="rePassword">
                 </p>
-                <!-- <p class="error">Repeat Password does not match password!</p> -->
+                <ng-container *ngIf="form.get('passGroup')?.get('rePassword')?.touched">
+                <p class="error" *ngIf="form.get('passGroup')?.errors?.['matchPasswordsValidator'] || 
+                form.get('passGroup')?.get('rePassword')?.errors?.['required']">Repeat Password does not match password!</p>
+            </ng-container>
+                <button [disabled]="form.invalid">Create Account</button>
+            </ng-container>
 
-                <button>Create Account</button>
-
-                <p class="text-center">
+                <p class="text-center"> 
                     Have an account?
                     <a routerLink="/login">Log In</a>
                 </p>
-            </ng-container>
 
         </fieldset>
     </form>
