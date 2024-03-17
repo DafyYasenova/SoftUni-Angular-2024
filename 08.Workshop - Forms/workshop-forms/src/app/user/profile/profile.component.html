@@ -5,43 +5,43 @@
 
             <div class="flex">
                 <p>Username: </p>
-                <p>Johny</p>
+                <p>{{profileDetails.username}}</p>
             </div>
             <div class="flex">
                 <p>Email: </p>
-                <p>john.doegmail.com</p>
+                <p>{{profileDetails.email}} </p>
             </div>
             <div class="flex">
                 <p>Phone: </p>
-                <p>+359 885 888 888</p>
+                <p>+359 {{profileDetails.tel}}</p>
             </div>
-            <button class="edit-button" (click)="onEdit()">Edit</button>
+            <button class="edit-button" (click)="onToggle()">Edit</button>
         </ng-container>
 
         <ng-container *ngIf="showEditMode">
-<form action="">
-            <div class="flex">
-                <p>Username: </p>
-                <input type="text" name="username" id="username" value="Johny">
-            </div>
-            <div class="flex">
-                <p>Email: </p>
-                <input type="email" name="email" id="email" value="john.doe@gmail.com">
-            </div>
-            <div class="flex">
-                <p>Phone: </p>
-                <div>
-                    <select name="select-tel" id="select-tel" class="tel">
-                        <option value="00359">+359</option>
-                    </select>
-                    <input type="text" name="tel" id="tel" value="885 888 888">
+            <form [formGroup]="form" (ngSubmit)="saveProfileHandler()">
+                <div class="flex">
+                    <p>Username: </p>
+                    <input type="text" name="username" id="username" [value]="profileDetails.username"
+                    formControlName="username">
                 </div>
-            </div>
-            <button class="red-button">Cancel</button>
-            <button class="green-button">Save</button>
-        </form>
+                <div class="flex">
+                    <p>Email: </p>
+                    <input type="email" name="email" id="email" [value]="profileDetails.email" formControlName="email">
+                </div>
+                <div class="flex">
+                    <p>Phone: </p>
+                    <div>
+                        <select name="select-tel" id="select-tel" class="tel">
+                            <option >+359</option>
+                        </select>
+                        <input type="text" name="tel" id="tel" [value]="profileDetails.tel" formControlName="tel">
+                    </div>
+                </div>
+                <button class="red-button">Cancel</button>
+                <button class="green-button" >Save</button>
+            </form>
         </ng-container>
 
-        </div>
     </div>
-    
+</div>
