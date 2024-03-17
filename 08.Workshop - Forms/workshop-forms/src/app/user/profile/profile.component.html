@@ -25,10 +25,20 @@
                     <input type="text" name="username" id="username" [value]="profileDetails.username"
                     formControlName="username">
                 </div>
+
+                <ng-container *ngIf="form.get('username')?.touched">
+                    <p class="error" *ngIf="form.get('username')?.errors?.['required']">Username is required!</p>
+                    <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">Username must be at least 5 characters!</p>
+                </ng-container>
                 <div class="flex">
                     <p>Email: </p>
                     <input type="email" name="email" id="email" [value]="profileDetails.email" formControlName="email">
                 </div>
+
+                <ng-container *ngIf="form.get('email')?.touched">
+                    <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!</p>
+                    <p class="error" *ngIf="form.get('email')?.errors?.['minlength']">Email is not valid!</p>
+                </ng-container>
                 <div class="flex">
                     <p>Phone: </p>
                     <div>
@@ -38,6 +48,11 @@
                         <input type="text" name="tel" id="tel" [value]="profileDetails.tel" formControlName="tel">
                     </div>
                 </div>
+                <ng-container *ngIf="form.get('tel')?.touched">
+                    <p class="error" *ngIf="form.get('tel')?.errors?.['required']">Phone is required!</p>
+                    <p class="error" *ngIf="form.get('tel')?.errors?.['minlength']">Phone is not valid!</p>
+                </ng-container>
+                
                 <button class="red-button">Cancel</button>
                 <button class="green-button" >Save</button>
             </form>

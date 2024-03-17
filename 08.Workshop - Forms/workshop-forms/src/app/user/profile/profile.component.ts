@@ -23,7 +23,7 @@ export class ProfileComponent {
   form = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(5)]],
     email: ['', [Validators.required, emailValidator(EMAIL_DOMAINS)]],
-    tel: [''],
+    tel: ['',[Validators.required, Validators.minLength(6)]],
   })
   constructor(private fb: FormBuilder) { }
 
