@@ -44,4 +44,9 @@ saveProfileHandler(): void{
 }
 
 
+onCancel(e: Event){
+  e.preventDefault();
+  this.onToggle();
+
+}
 }

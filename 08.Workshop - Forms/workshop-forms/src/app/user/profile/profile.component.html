@@ -53,8 +53,9 @@
                     <p class="error" *ngIf="form.get('tel')?.errors?.['minlength']">Phone is not valid!</p>
                 </ng-container>
                 
-                <button class="red-button">Cancel</button>
-                <button class="green-button" >Save</button>
+                <button class="red-button" (click)="onCancel($event)">Cancel</button>
+                <button class="green-button" 
+                [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : 'green'}">Save</button>
             </form>
         </ng-container>
 
