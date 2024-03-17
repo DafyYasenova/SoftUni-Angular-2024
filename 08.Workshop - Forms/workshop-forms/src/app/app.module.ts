@@ -14,6 +14,7 @@ import { AddThemeComponent } from './theme/add-theme/add-theme.component';
 import { UserModule } from './user/user.module';
 import { ThemeModule } from './theme/theme.module';
 import { ErrorComponent } from './error/error.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,9 +28,6 @@ import { ErrorComponent } from './error/error.component';
     AddThemeComponent,
     ErrorComponent,
    
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -39,6 +37,8 @@ import { ErrorComponent } from './error/error.component';
     UserModule,
     ThemeModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

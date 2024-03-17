@@ -6,6 +6,7 @@ import { ThemesListComponent } from './themes-list/themes-list.component';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { MainComponent } from './main/main.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +21,7 @@ import { MainComponent } from './main/main.component';
   //   this._declarations = value;
   // },
   imports: [
-    CommonModule, ThemeRoutingModule, SharedModule,
+    CommonModule, ThemeRoutingModule, SharedModule, FormsModule,
   ]
 })
 export class ThemeModule { }
