@@ -1,7 +1,7 @@
 <div class="container">
     <div class="profile"><img src="../../../assets/profile.png" alt="default user">
         <h3>User Info:</h3>
-        <ng-container>
+        <ng-container *ngIf="!showEditMode">
 
             <div class="flex">
                 <p>Username: </p>
@@ -15,8 +15,10 @@
                 <p>Phone: </p>
                 <p>+359 885 888 888</p>
             </div>
-            <button class="edit-button">Edit</button>
+            <button class="edit-button" (click)="onEdit()">Edit</button>
         </ng-container>
+
+        <ng-container *ngIf="showEditMode">
 <form action="">
             <div class="flex">
                 <p>Username: </p>
@@ -38,6 +40,7 @@
             <button class="red-button">Cancel</button>
             <button class="green-button">Save</button>
         </form>
+        </ng-container>
 
         </div>
     </div>
